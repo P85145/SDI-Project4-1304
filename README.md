@@ -15,7 +15,7 @@ var checkNum = function (testNumber) {
         var pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
         if (pattern.test(phoneNumber)) { 
             var validPhoneNumber = phoneNumber.replace(pattern, "($1) $2-$3");
-            console.log("Valid phone number!");
+            console.log(" It works!");
         } else {
             return console.log("This is not a phone number!"); 
         }
@@ -63,7 +63,7 @@ function fixCase(fixThis) {
 	
 
 	// String w/ Separator
-function changeSeparator(changeThis) {
+function sepChange(changeThis) {
     if (changeThis) {
         return console.log("a/" + "b/" + "c/");
     }
@@ -84,7 +84,7 @@ function fixDecimal(moneyAmt) {
 	// Hours & Dates
 function getDays(testDate) {
     var realDay = testDate;
-    today = newDate(2013, 02, 05);
+    today = newDate(2013, 01, 05);
     var one_day = 1000 * 60 * 60 * 24;
     console.log(Math.ceil((today.getTime() - realDay.getTime()) / (one_day)) + " days have gone by since " + testDate)
 }
@@ -119,7 +119,7 @@ function getSmallest() {
 		"checkValidEmail" : checkValidEmail
 		"checkUrl" : checkUrl
 		"fixCase" : fixCase
-		"changeSeparator" : changeSeparator
+		"sepChange" : sepChange
 		"fixDecimal" : fixDecimal
 		"getDays" : getDays
 		"getSmallest" : getSmallest
@@ -132,7 +132,18 @@ var newLib = new myLibrary();{
 
 }
 
+console.log("The phone pattern matches " + newLib.checkNum(123-456-7890));
+console.log("My email address is " + newLib.checkValidEmail("aaa@bbb.ccc"));
 console.log("checkUrl: " + newLib.checkUrl("http: or https:")); 
+console.log("The sign reads " + newLib.fixCase("Have A Great Day"));
+console.log("No more commas, just " + newLib.sepChange("a/b/c"));
+console.log("The decimal is in position " + newLib.fixDecimal("2.10"));
+console.log("A total of " + newLib.getDays(1)) + " have gone by";
+console.log("The winning number is " + newLib.getSmallest(7));
+
+
+
+	
 
 
 
